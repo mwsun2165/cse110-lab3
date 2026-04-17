@@ -1,10 +1,16 @@
 /* comment */
 
+/* universal selector (*) */
+* {
+    box-sizing: border-box;
+}
+
 :root {
     /* variable w/fallback */
     --main-text-color: var(--custom-text, #333333);
 }
 
+/* element selector (element) */
 body {
     /* 3rd party font (imported in html) */
     font-family: 'Inter', sans-serif;
@@ -49,7 +55,8 @@ h1 {
     text-decoration: underline;
 }
 
-nav ul {
+/* child combinator (element > element) */
+nav > ul {
     /* flexbox layout applied to display property */
     /* 4 li elements as children */
     display: flex;
@@ -66,24 +73,25 @@ nav ul {
     padding: 0;
 }
 
+/* descendant Combinator (element element) */
 nav a {
     /* color w/ hsl() */
     color: hsl(210, 60%, 40%);
     text-decoration: none;
 }
 
-/* pseudo-class :hover */
+/* pseudo-class selector (a:hover) */
 nav a:hover {
     /* color w/ name */
     color: orange;
 }
 
-/* pseudo-class :active */
 button:active {
     transform: scale(0.98);
 }
 
-.hidden-lab-note {
+/* combining two selectors (element.class) */
+p.hidden-lab-note {
     /* display property 1/2: none */
     display: none;
 }
@@ -114,6 +122,27 @@ section {
     background-color: #FFFFFF;
 }
 
+/* id selector (#id) */
+#attendance {
+    border-left: 4px solid hsl(210, 60%, 40%);
+}
+
+/* :has() selector */
+section:has(audio) {
+    background-color: color-mix(in srgb, #f4f4f9 50%, white);
+}
+
+/* adjacent sibling combinator (element + element) */
+h2 + h3 {
+    margin-top: 0;
+    color: #555;
+}
+
+/* general sibling combinator (element ~ element) */
+h3 ~ p {
+    line-height: 1.5;
+}
+
 .highlight-note {
     /* wider-gamut color w/ color-mix() */
     background-color: color-mix(in srgb, yellow 40%, transparent);
@@ -121,6 +150,7 @@ section {
     border-radius: 4px;
 }
 
+/* class Selector (.class) */
 .media-grid {
     /* grid layout applied to display property */
     /* 3 media-card elements as children */
@@ -140,14 +170,20 @@ section {
     
     /* sizing (width) */
     width: 100%;
-    box-sizing: border-box;
 }
 
-.media-card img, 
-.media-card video {
+/* selector list (element, element) */
+.media-card img, .media-card video {
     /* sizing (max-width, height) */
     max-width: 100%;
     height: auto;
+}
+
+/* attribute Selector ([attribute=foo]) */
+input[type="text"] {
+    border: 1px solid #ccc;
+    padding: 5px;
+    border-radius: 4px;
 }
 
 footer {
@@ -156,11 +192,17 @@ footer {
     /* absolute units 3/3, pt */
     font-size: 12pt;
     text-align: center;
+    
+    /* nested selector */
+    p {
+        color: #777777;
+        margin: 0;
+    }
 }
 
 /* responsiveness: media query for smaller screens */
 @media (max-width: 768px) {
-    nav ul {
+    nav > ul {
         flex-direction: column;
     }
     .media-grid {
