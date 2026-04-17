@@ -194,7 +194,7 @@ footer {
     text-align: center;
     
     /* nested selector */
-    p {
+    & p {
         color: #777777;
         margin: 0;
     }
