@@ -72,10 +72,15 @@ nav a {
     text-decoration: none;
 }
 
-/* pseudo-class */
+/* pseudo-class :hover */
 nav a:hover {
     /* color w/ name */
     color: orange;
+}
+
+/* pseudo-class :active */
+button:active {
+    transform: scale(0.98);
 }
 
 .hidden-lab-note {
