@@ -1,0 +1,169 @@
+/* comment */
+
+:root {
+    /* variable w/fallback */
+    --main-text-color: var(--custom-text, #333333);
+}
+
+body {
+    /* 3rd party font (imported in html) */
+    font-family: 'Inter', sans-serif;
+    
+    /* background-color */
+    background-color: var(--undefined-bg, #f4f4f9);
+    
+    /* color w/ hex code */
+    color: var(--main-text-color);
+    
+    /* box model w/ shorthand margin */
+    margin: 0 auto;
+    
+    /* box model w/ longhand padding */
+    padding-top: 20px;
+    padding-right: 15px;
+    padding-bottom: 20px;
+    padding-left: 15px;
+    
+    /* sizing (max-width, min-width) */
+    max-width: 1000px;
+    min-width: 320px;
+}
+
+header {
+    /* box model w/ longhand margin */
+    margin-top: 10px;
+    margin-right: 0;
+    margin-bottom: 20px;
+    margin-left: 0;
+    
+    /* position property 1/2, relative */
+    position: relative;
+}
+
+h1 {
+    /* wider-gamut color w/color(colorspace) */
+    color: color(display-p3 0.1 0.4 0.7);
+    
+    /* text properties */
+    text-align: center;
+    text-decoration: underline;
+}
+
+nav ul {
+    /* flexbox layout applied to display property */
+    /* 4 li elements as children */
+    display: flex;
+    
+    /* three flexbox-related attributes */
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    
+    list-style-type: none;
+    
+    /* box model w/ shorthand padding */
+    padding: 0;
+}
+
+nav a {
+    /* color w/ hsl() */
+    color: hsl(210, 60%, 40%);
+    text-decoration: none;
+}
+
+/* pseudo-class :hover */
+nav a:hover {
+    /* color w/ name */
+    color: orange;
+}
+
+/* pseudo-class :active */
+button:active {
+    transform: scale(0.98);
+}
+
+.hidden-lab-note {
+    /* display property 1/2: none */
+    display: none;
+}
+
+main {
+    /* position property 2/2: static */
+    position: static;
+}
+
+section {
+    /* display property 2/2: block */
+    display: block;
+    
+    /* box model w/ longhand borders */
+    border-style: solid;
+    /* color w/ rgba() */
+    border-color: rgba(0, 0, 0, 0.1);
+    /* absolute units 1/3, px */
+    border-width: 1px;
+    border-radius: 8px;
+    
+    /* relative units 1/3, rem */
+    margin-bottom: 2rem;
+    
+    /* relative units 2/3, em */
+    padding: 2em;
+    
+    background-color: #FFFFFF;
+}
+
+.highlight-note {
+    /* wider-gamut color w/ color-mix() */
+    background-color: color-mix(in srgb, yellow 40%, transparent);
+    padding: 2px 4px;
+    border-radius: 4px;
+}
+
+.media-grid {
+    /* grid layout applied to display property */
+    /* 3 media-card elements as children */
+    display: grid;
+    
+    /* three grid-related attributes */
+    grid-template-columns: repeat(3, 1fr);
+    /* relative units 3/3, vw */
+    gap: 1.5vw; 
+    align-items: stretch;
+}
+
+.media-card {
+    /* box model w/ shorthand borders */
+    border: 2px dashed #cccccc;
+    padding: 15px;
+    
+    /* sizing (width) */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.media-card img, 
+.media-card video {
+    /* sizing (max-width, height) */
+    max-width: 100%;
+    height: auto;
+}
+
+footer {
+    /* absolute units 2/3, cm */
+    margin-top: 1cm;
+    /* absolute units 3/3, pt */
+    font-size: 12pt;
+    text-align: center;
+}
+
+/* responsiveness: media query for smaller screens */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+    }
+    .media-grid {
+        grid-template-columns: 1fr;
+    }
+}

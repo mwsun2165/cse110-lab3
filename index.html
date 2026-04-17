@@ -2,21 +2,40 @@
 <html lang="en">
 <head>
     <title>Feature X Standup Meeting Minutes</title>
-    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- internal css -->
+    <style>
+        .internal-style-example {
+            background-color: lavender;
+        }
+    </style>
 </head>
 <body>
+    <p class="hidden-lab-note">This hidden note uses display:none.</p>
     <header>
-        <h1>Feature X: Brainstorming Session</h1><nav><ul>
-            <li><a href="#attendance">Attendance</a></li>
-            <li><a href="#agenda">Agenda</a></li>
-            <li><a href="#multimedia">Media</a></li>
-            <li><a href="#feedback">Feedback Form</a></li>
-        </ul></nav><hr>
+        <!-- inline css -->
+        <h1 style="letter-spacing: 1px;">Feature X: Brainstorming Session</h1>
+        <nav>
+            <ul>
+                <li><a href="#attendance">Attendance</a></li>
+                <li><a href="#agenda">Agenda</a></li>
+                <li><a href="#business">Business</a></li>
+                <li><a href="#multimedia">Media</a></li>
+                <li><a href="#feedback">Feedback Form</a></li>
+            </ul>
+        </nav>
+        <hr>
     </header>
 
     <main>
-    <section id="attendance">
+    <section id="attendance" class="internal-style-example">
         <h2>Meeting Overview</h2>
         <h3>Date: April 10th, 2026</h3>
         <p><b>Attendance List:</b></p>
@@ -50,59 +69,71 @@
 
         <details>
             <summary>Click to view miscellaneous comments</summary>
-            <p>Jake mentioned that the <em>color scheme</em> might need an accessibility audit.</p>
+            <p>Jake mentioned that the <em>color scheme</em> might need an accessibility audit. <span class="highlight-note">Priority: medium.</span></p>
         </details>
     </section>
 
     <section id="multimedia">
         <h2>Meeting Artifacts</h2>
-        <p>Document ingestion pipeline diagram:</p>
-        <img src="media/diagram.png" alt="A flowchart showing the ingestion logic" width="400">
-        <br>
-        <h3>Meeting Audio Recording</h3>
-        <audio controls> <source src="media/audio.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-        </audio>
-
-        <h3>Meeting Video Recording</h3>
-        <video controls width="400"> <source src="media/video.mp4" type="video/mp4">
-            Your browser does not support the video element.
-        </video>
+        <div class="media-grid">
+            <div class="media-card">
+                <h3>Pipeline Diagram</h3>
+                <p>Document ingestion pipeline diagram:</p>
+                <img src="media/diagram.png" alt="A flowchart showing the ingestion logic" width="400">
+            </div>
+            <div class="media-card">
+                <h3>Meeting Audio Recording</h3>
+                <audio controls> <source src="media/audio.mp3" type="audio/mpeg"></audio>
+            </div>
+            <div class="media-card">
+                <h3>Meeting Video Recording</h3>
+                <video controls width="400"> <source src="media/video.mp4" type="video/mp4"></video>
+            </div>
+        </div>
     </section>
 
     <hr>
 
     <section id="feedback">
         <h2>Post-Meeting Feedback Form</h2>
-        <form action="#"><fieldset>
-            <legend>Contact Information</legend>
-            <label for="name">Name: </label><input type="text" id="name" name="name" placeholder="Enter your name"><br><br>
-            <label for="m-date">Meeting Follow-up Date: </label><input type="date" id="m-date" name="m-date"><br>
-            <p>Did this meeting achieve its goals?</p>
-            <input type="radio" id="yes" name="goals" value="yes"><label for="yes">Yes</label>
-            <input type="radio" id="no" name="goals" value="no"><label for="no">No</label><br><br>
+        <form action="#">
+            <fieldset>
+                <legend>Contact Information</legend>
+                <div class="form-grid">
+                    <label for="name">Name: </label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name">
+                    
+                    <label for="m-date">Meeting Follow-up Date: </label>
+                    <input type="date" id="m-date" name="m-date">
+                    
+                    <label for="topic">Favorite Topic:</label>
+                    <input list="topics" id="topic" name="topic">
+                    <datalist id="topics">
+                        <option value="Brainstorming"></option>
+                        <option value="Design"></option>
+                        <option value="Other"></option>
+                    </datalist>
+                    
+                    <label for="department">Department:</label>
+                    <select id="department" name="department">
+                        <option value="eng">Engineering</option>
+                        <option value="design">Design</option>
+                        <option value="mgmt">Management</option>
+                    </select>
+                    
+                    <label for="comments">Additional Comments:</label>
+                    <textarea id="comments" name="comments" rows="4" cols="50"></textarea>
+                </div>
 
-            <label for="topic">Favorite Topic:</label>
-            <input list="topics" id="topic" name="topic"><datalist id="topics">
-                <option value="Brainstorming">
-                <option value="Design">
-                <option value="Other">
-            </datalist><br><br>
+                <p>Did this meeting achieve its goals?</p>
+                <input type="radio" id="yes" name="goals" value="yes"><label for="yes">Yes</label>
+                <input type="radio" id="no" name="goals" value="no"><label for="no">No</label><br><br>
 
-            <label for="department">Department:</label>
-            <select id="department" name="department">
-                <option value="eng">Engineering</option>
-                <option value="design">Design</option>
-                <option value="mgmt">Management</option>
-            </select><br><br>
+                <input type="checkbox" id="subscribe" name="subscribe"> <label for="subscribe">Subscribe to meeting minutes</label><br><br>
 
-            <label for="comments">Additional Comments:</label><br>
-            <textarea id="comments" name="comments" rows="4" cols="50"></textarea><br><br>
-
-            <input type="checkbox" id="subscribe" name="subscribe"> <label for="subscribe">Subscribe to meeting minutes</label><br><br>
-
-            <button type="submit">Submit Feedback</button>
-        </fieldset></form>
+                <button type="submit">Submit Feedback</button>
+            </fieldset>
+        </form>
     </section>
 
     </main>
