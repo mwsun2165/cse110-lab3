@@ -19,7 +19,7 @@ body {
     background-color: var(--undefined-bg, #f4f4f9);
     
     /* color w/ hex code */
-    color: var(--main-text-color);
+    color: var(--main-text-color, #f4f4f9);
     
     /* box model w/ shorthand margin */
     margin: 0 auto;
@@ -48,7 +48,8 @@ header {
 
 h1 {
     /* wider-gamut color w/color(colorspace) */
-    color: color(display-p3 0.1 0.4 0.7);
+    /* removed for css validator, other wider-gamut element kept */
+    /* color: color(display-p3 0.1 0.4 0.7); */
     
     /* text properties */
     text-align: center;
@@ -194,7 +195,7 @@ footer {
     text-align: center;
     
     /* nested selector */
-    p {
+    & p {
         color: #777777;
         margin: 0;
     }
